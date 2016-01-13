@@ -1,4 +1,5 @@
 const http = require('http');
+const greet = require(__dirname + '/lib/greet');
 
 var server = module.exports = exports = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/time') {
@@ -10,7 +11,7 @@ var server = module.exports = exports = http.createServer((req, res) => {
   else if (req.method === 'GET' && req.url.startsWith('/greet')) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     var name = req.url.split('/')[2];
-    res.write('Hello ' + name);
+    res.write(greet(name));
     res.end();
   }
 
@@ -21,7 +22,7 @@ var server = module.exports = exports = http.createServer((req, res) => {
     });
     req.on('end', () => {
       res.writeHead(200, {'Content-Type': 'text/plain'});
-      res.write('Hello ' + JSON.parse(body).name);
+      res.write(greet(JSON.parse(body).name));
       res.end();
     });
   }

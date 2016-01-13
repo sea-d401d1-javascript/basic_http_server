@@ -7,12 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha test -c",
+    "test": "node ./node_modules/gulp-mocha/node_modules/mocha/bin/mocha test/**/*test.js -c",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.4.1",

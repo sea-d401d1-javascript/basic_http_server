@@ -36,4 +36,4 @@ var server = module.exports = exports = http.createServer((req, res) => {
 
 server.listen(3000, () => {
   console.log('server running on port 3000');
-})
+});

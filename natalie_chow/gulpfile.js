@@ -3,12 +3,13 @@ const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
 gulp.task('lint', function() {
-  return gulp.src(['**.*.js', '!**/node_modules/*'])
+  return gulp.src(['**/*.js', '!**/node_modules/*'])
     .pipe(eslint({
       'rules': {
         'indent': [2, 2],
         'quotes': [2, 'single'],
-        'semi': [2, 'always']
+        'semi': [2, 'always'],
+        'no-console': 0
       },
       'env': {
         'es6': true,

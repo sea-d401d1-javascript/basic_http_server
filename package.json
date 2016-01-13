@@ -3,20 +3,16 @@
   "version": "1.0.0",
   "description": "Erika's basic HTTP server",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {
+    "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/erikawho/basic_http_server.git"
+    "url": "git+https://github.com/erikawho/Erika_basic_http_server"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/erikawho/basic_http_server/issues"
+  "dependencies": {
+    "http": "^1.0.2"
   },
-  "homepage": "https://github.com/erikawho/basic_http_server#readme",
   "devDependencies": {
     "chai": "^3.4.1",
     "gulp": "^3.9.0",
@@ -29,4 +25,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
     "mocha": "^2.3.4"
-  }
+  },
+  "keywords": [], 
+  "author": "erikawho",
+  "license": "ISC"
+  },

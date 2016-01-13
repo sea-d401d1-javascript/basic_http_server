@@ -4,21 +4,33 @@ var server = module.exports = exports = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/time') {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write((new Date()).toString());
-    return res.end();
+    res.end();
   }
 
-  if (req.method === 'GET' && req.url.startsWith('/greet')) {
+  else if (req.method === 'GET' && req.url.startsWith('/greet')) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     var name = req.url.split('/')[2];
     res.write('Hello ' + name);
-    return res.end();
+    res.end();
   }
 
-  // handle POST request
+  else if (req.method === 'POST' && req.url == '/greet') {
+    var body = '';
+    req.on('data', (chunk) => {
+      body += chunk;
+    });
+    req.on('end', () => {
+      res.writeHead(200, {'Content-Type': 'text/plain'});
+      res.write('Hello ' + JSON.parse(body).name);
+      res.end();
+    });
+  }
 
-  res.writeHead(404, {'Content-Type': 'text/plain'});
-  res.write('page not found');
-  res.end();
+  else {
+    res.writeHead(404, {'Content-Type': 'text/plain'});
+    res.write('page not found');
+    res.end();
+  }
 });
 
 server.listen(3000, () => {

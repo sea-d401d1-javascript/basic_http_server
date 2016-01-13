@@ -2,13 +2,13 @@ const http = require('http');
 
 var server = module.exports = exports = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/time') {
-    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write((new Date()).toString());
     return res.end();
   }
 
   if (req.method === 'GET' && req.url.startsWith('/greet')) {
-    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.writeHead(200, {'Content-Type': 'text/plain'});
     var name = req.url.split('/')[2];
     res.write('Hello ' + name);
     return res.end();
@@ -16,7 +16,7 @@ var server = module.exports = exports = http.createServer((req, res) => {
 
   // handle POST request
 
-  res.writeHead(404, {'Content-Type': 'application/json'});
+  res.writeHead(404, {'Content-Type': 'text/plain'});
   res.write('page not found');
   res.end();
 });

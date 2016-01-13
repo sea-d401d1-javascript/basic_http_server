@@ -1,29 +1,32 @@
 const http = require('http');
 const fs = require('fs');
 
-var server = module.exports = exports = http.createServer((req, res) => {
+exports.server = http.createServer((req, res) => {
   var name = req.url.slice(7);
-  console.log(name);
 
   if (req.method === 'GET' && (req.url === '/' || req.url === '/index.html' || req.url === '/index')) {
+    console.log('Requested index page');
     res.writeHead(200, {'Content-Type': 'text/html'});
-    var index = fs.createReadStream(__dirname + '/public/index.html');
+    var index = fs.createReadStream(__dirname + '/../public/index.html');
     return index.pipe(res);
   }
 
   if (req.method === 'GET' && req.url === '/time') {
+    console.log('Requested time: ' + new Date());
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('The current date and time of the server is: ' + new Date());
     return res.end();
   }
 
-  if (req.method === 'GET' && req.url === ('/greet/' + name)) {
+  if (req.method === 'GET' && req.url === ('/greet/' + name) && name.length > 0) {
+    console.log(name.toUpperCase() + ' requested greeting');
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.write('Hello there, ' + name.toUpperCase() + '!');
     return res.end();
   }
 
   if (req.method === 'POST' && req.url === '/greet') {
+    console.log('Posted message to server');
     req.on('data', function(data) {
       var jsonFormat = JSON.parse(data.toString());
       console.log(jsonFormat);
@@ -37,5 +40,3 @@ var server = module.exports = exports = http.createServer((req, res) => {
   res.write(JSON.stringify({msg: 'Page not found'}));
   return res.end();
 });
-
-server.listen(3000, () => console.log('Server started!'));

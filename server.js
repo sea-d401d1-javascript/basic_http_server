@@ -5,11 +5,11 @@ var date = new Date(),
     PORT = 3000;
 
 var server = http.createServer(function(request, response) {
+
   var responseData = {},
       urlPath =request.url.split('/'),
       url = request.url,
       rD = responseData;
-
 
   function writeResponse() {
     response.writeHead(rD.status || 404, {

@@ -1,0 +1,21 @@
+{
+  "name": "basic_http_server",
+  "version": "1.0.0",
+  "description": "This project is to create vanilla http server in node for serveral differenct routes",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/**/*test.js"
+  },
+  "author": "Yueyue Qin",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "dateformat": "^1.0.12",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.3.4",
+    "superagent-cli": "^2.1.0"
+  }
+}

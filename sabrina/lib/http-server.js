@@ -19,9 +19,9 @@ exports.server = http.createServer((req, res) => {
   }
 
   if (req.method === 'GET' && req.url === ('/greet/' + name) && name.length > 0) {
-    console.log(name.toUpperCase() + ' requested greeting');
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.write('Hello there, ' + name.toUpperCase() + '!');
+    console.log(name + ' requested greeting');
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Hello there, ' + name + '!');
     return res.end();
   }
 

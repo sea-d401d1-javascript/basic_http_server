@@ -2,10 +2,10 @@ const chai = require('chai');
 const expect = require('chai').expect;
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-const fs = require('fs');
+const fs = require('fs');//eslint-disable-line
 const request = chai.request;
 
-const server = require(__dirname + '/../lib/http-server.js');
+const server = require(__dirname + '/../lib/http-server.js');//eslint-disable-line
 
 describe('HTTP server', () => {
   it('should have run server', (done) => {
@@ -17,7 +17,7 @@ describe('HTTP server', () => {
         expect(res.text).to.eql('Hello world ');
         done();
       });
-    });
+  });
 
   it('should greet tom after curl', (done) => {
     request('localhost:3000')
@@ -28,7 +28,7 @@ describe('HTTP server', () => {
         expect(res.text).to.eql('Hello, tom ');
         done();
       });
-    });
+  });
 
   it('should have a greet route', (done) => {
     request('localhost:3000')
@@ -40,7 +40,7 @@ describe('HTTP server', () => {
         expect(res.text).to.eql('Hello, jesse ');
         done();
       });
-    });
+  });
 
   it('should 404 on a page that does not exist', (done) => {
     request('localhost:3000')
@@ -51,5 +51,5 @@ describe('HTTP server', () => {
         expect(res.text).to.eql('Page not found ');
         done();
       });
-    });
   });
+});

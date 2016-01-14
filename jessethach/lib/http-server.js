@@ -1,18 +1,16 @@
 const http = require('http');
-const fs = require('fs');
+const fs = require('fs');//eslint-disable-line
 const greet = require(__dirname + '/greet');
 
 var server = module.exports = exports = http.createServer((req, res) => {
   var timeRequested = {};
   if(req.method === 'GET' && req.url === '/') {
-    console.log('Request for ' + req.url + ' received');
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('Hello world ');
     return res.end();
   }
 
   else if(req.method === 'GET' && req.url === '/time') {
-    console.log('Getting time');
     res.writeHead(200, {'Content-Type': 'text/plain'});
     timeRequested = 'Time logged at ' + new Date().toString() + ' ';
     res.write(timeRequested);
@@ -37,7 +35,7 @@ var server = module.exports = exports = http.createServer((req, res) => {
       res.end();
     });
   }
-  
+
   else {
     res.writeHead(404, {'Content-Type': 'text/plain'});
     res.write('Page not found ');
@@ -45,4 +43,4 @@ var server = module.exports = exports = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000, () => console.log('Server up'));
+server.listen(3000, () => console.log('Server up'));//eslint-disable-line

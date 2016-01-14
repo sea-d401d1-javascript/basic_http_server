@@ -4,8 +4,11 @@ const url         = require('url');
 const PORT        = 3000;
 
 var server = http.createServer(onRequest).listen(PORT);
-var time = new Date().toISOString();
-exports.time = time;
+
+function date() {
+  var time = new Date().toISOString();
+  return time;
+}
 
 function onRequest(req, res) {
   // try to get url as string from req object
@@ -26,8 +29,8 @@ function onRequest(req, res) {
   }
   if (req.method === 'GET' && req.url === '/time') {
     res.writeHead(200, {'Content-Type':'text/html'});
-    res.write(JSON.stringify({ time: time }));
-    res.write(urlString)
+    res.write('GIBBITY FLIBBITY, CRAIG');
+    debugger;
     res.end();
   }
   if (req.method === 'POST' && req.url === '/greet') {

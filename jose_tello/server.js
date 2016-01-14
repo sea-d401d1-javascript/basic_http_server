@@ -5,8 +5,12 @@ const PORT        = 3000;
 
 var server = http.createServer(onRequest).listen(PORT);
 
+exports.date = date;
+
 function date() {
-  var time = new Date().toISOString();
+  var time = JSON.stringify(new Date().toISOString().slice(0,10));
+  // time = time.slice(1,11);
+  debugger;
   return time;
 }
 
@@ -28,9 +32,9 @@ function onRequest(req, res) {
     res.write('<h1 style="text-align: center">Hello World</h1>');
   }
   if (req.method === 'GET' && req.url === '/time') {
-    res.writeHead(200, {'Content-Type':'text/html'});
-    res.write('GIBBITY FLIBBITY, CRAIG');
+    res.writeHead(200, {'Content-Type':'application/json'});
     debugger;
+    res.write(date());
     res.end();
   }
   if (req.method === 'POST' && req.url === '/greet') {

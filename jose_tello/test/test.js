@@ -12,7 +12,8 @@ describe('test simple http server', () => {
     .end((err, res) => {
       expect(err).to.eql(null);
       expect(res).to.have.status(200);
-      expect(res.body.time).to.eql('');
+      expect(res.text).to.eql(server.date());
+      console.log(server.date());
       debugger;
       done();
     });

@@ -4,13 +4,10 @@ const url         = require('url');
 const PORT        = 3000;
 
 var server = http.createServer(onRequest).listen(PORT);
-
 exports.date = date;
 
 function date() {
   var time = JSON.stringify(new Date().toISOString().slice(0,10));
-  // time = time.slice(1,11);
-  debugger;
   return time;
 }
 
@@ -33,7 +30,6 @@ function onRequest(req, res) {
   }
   if (req.method === 'GET' && req.url === '/time') {
     res.writeHead(200, {'Content-Type':'application/json'});
-    debugger;
     res.write(date());
     res.end();
   }

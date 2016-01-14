@@ -13,8 +13,26 @@ describe('test simple http server', () => {
       expect(err).to.eql(null);
       expect(res).to.have.status(200);
       expect(res.text).to.eql(server.date());
-      console.log(server.date());
-      debugger;
+      done();
+    });
+  });
+  it('should greet the user when hits route /greet + name', (done) => {
+    request('localhost:3000')
+    .get('/greet/code_fellows')
+    .end((err, res) => {
+      expect(err).to.eql(null);
+      expect(res).to.have.status(200);
+      expect(res.text).to.eql('Greetings code_fellows');
+      done();
+    });
+  });
+  it('should have a greet route that takes a post request', (done) => {
+    request('localhost:3000')
+    .post('/greet')
+    .send({ msg: 'hello world', password: '123' })
+    .end((err, res) => {
+      expect(err).to.eql(null);
+      expect(res).to.have.status(200);
       done();
     });
   });

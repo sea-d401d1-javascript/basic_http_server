@@ -8,8 +8,8 @@ gulp.task('function', function() {
 });
 
 gulp.task('eslint_check', function() {
-  return gulp.src(['**/*.js','!node_modules/**','!dist/*.js']).pipe(plugins.eslint(
-    {
+  return gulp.src(['**/*.js','!node_modules/**','!dist/*.js']).pipe.eslint();
+  {
       'settings': {
         'ecmascript': 5
       },
@@ -36,7 +36,7 @@ gulp.task('eslint_check', function() {
         'no-underscore-dangle': 0
       }
     }
-  )).pipe(plugins.eslint.format()).pipe(plugins.eslint.failAfterError());
+  )).pipe(eslint.format()).pipe(eslint.failAfterError());
 });
 
 gulp.task('mocha_tests', function () {

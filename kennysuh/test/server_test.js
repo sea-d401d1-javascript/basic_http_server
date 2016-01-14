@@ -6,6 +6,9 @@ var expect = chai.expect;
 var request = chai.request;
 
 describe('simple http server', function() {
+  after(() => {
+    server.close();
+  });
   it('should have a time route', function(done) {
     request('localhost:3000')
       .get('/time')

@@ -8,6 +8,18 @@ var time = new Date().toISOString();
 exports.time = time;
 
 function onRequest(req, res) {
+  // try to get url as string from req object
+  var urlString = req.url.substring(1, req.url.length);
+  var newUrl = urlString.indexOf('/')
+  console.log(newUrl > -1);
+  if (newUrl > -1) {
+    var endpoint = urlString.split('/', 2)
+    console.log(endpoint[1]);
+    req.method === 'GET';
+    res.writeHead(200, {'Content-Type':'text/plain'});
+    res.write('Greetings ' + endpoint[1]);
+    res.end();
+  }
   if (req.method === 'GET' && req.url === '/') {
     res.writeHead(200, {'Content-Type':'text/html'});
     res.write('<h1 style="text-align: center">Hello World</h1>');
@@ -15,8 +27,7 @@ function onRequest(req, res) {
   if (req.method === 'GET' && req.url === '/time') {
     res.writeHead(200, {'Content-Type':'text/html'});
     res.write(JSON.stringify({ time: time }));
-    // trying to get input in url with substring
-    res.write(req.url.substring(1, 0));
+    res.write(urlString)
     res.end();
   }
   if (req.method === 'POST' && req.url === '/greet') {

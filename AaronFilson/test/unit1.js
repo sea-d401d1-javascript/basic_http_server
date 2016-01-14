@@ -57,10 +57,14 @@ describe('time page route and behavior', function(){
        expect(res).to.have.status(200);
     });
     chai.request(app)
-    .get('/index')
+    .get('/time')
     .end(function (err, res) {
        expect(err).to.be.null;
        expect(res).to.be.text;
+       expect(res).to.have.body;
+       for(ele in res){
+         console.log('res ele : ' + ele);
+       }
        done();
     });
   });

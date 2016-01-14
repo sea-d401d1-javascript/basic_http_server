@@ -17,7 +17,7 @@ var serverstop = exports.serverstop = function(){
   server.stop();
 };
 
-if(process.argv[2] == 'now'){
+if(process.argv[2] == 'now' || process.argv[3] == 'now'){
   server.start(router.route, handle);
 
 }

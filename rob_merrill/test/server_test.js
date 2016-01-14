@@ -1,8 +1,8 @@
-var fs = require('fs'),
-    chai = require('chai'),
-    expect = chai.expect,
-    chaihttp = require('chai-http'),
-    server = require(__dirname + '/../lib/server.js');
+const fs = require('fs'),
+      chai = require('chai'),
+      expect = chai.expect,
+      chaihttp = require('chai-http'),
+      server = require(__dirname + '/../lib/server.js');
 chai.use(chaihttp);
 
 describe('http server', function() {

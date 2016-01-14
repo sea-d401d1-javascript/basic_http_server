@@ -8,6 +8,10 @@ const request = chai.request;
 const server = require(__dirname + '/../lib/http-server.js');//eslint-disable-line
 
 describe('HTTP server', () => {
+  after(() => {
+    server.close();
+  });
+
   it('should have run server', (done) => {
     request('localhost:3000')
       .get('/')

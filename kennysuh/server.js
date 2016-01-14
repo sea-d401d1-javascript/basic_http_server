@@ -20,7 +20,7 @@ var server = module.exports = http.createServer(function(req, res) {
     });
 
     req.on('end', function() {
-      res.writeHead(200, "OK", {'Content-Type': 'text/html'});
+      res.writeHead(200, "OK", {'Content-Type': 'application/json'});
       res.end();
     });
 

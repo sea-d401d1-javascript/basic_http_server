@@ -32,3 +32,9 @@ gulp.task('test', () => {
   return gulp.src(['test/*.js'])
     .pipe(mocha());
 });
+
+gulp.task('watch', () => {
+  return gulp.watch('./*.js', 'test/*.js', '!node_modules/**', '!package.json');
+});
+
+gulp.task('default', ['lint', 'test']);

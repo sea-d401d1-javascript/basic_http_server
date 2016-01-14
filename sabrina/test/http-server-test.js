@@ -63,6 +63,22 @@ describe('the http server', () => {
       });
   });
 
+  describe('the POST request', () => {
+    it('should respond with a greeting at /greet', (done) => {
+      var jsonName = {"name": "sab"};
+      var postTest = 'Hello there, ' + jsonName.name + '!';
+      chai.request('localhost:3000')
+        .post('/greet')
+        .send(jsonName)
+        .end((err, res) => {
+          expect(err).to.eql(null);
+          expect(res).to.have.status(200);
+          expect(res.text).to.eql(postTest);
+          done();
+        });
+    });
+  });
+
   it('should respond a 404 error to GET requests at unknown routes', (done) => {
     chai.request('localhost:3000')
       .get('/doesnotexist')

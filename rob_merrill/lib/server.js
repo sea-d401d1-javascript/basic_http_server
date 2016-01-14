@@ -1,6 +1,6 @@
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
+const http = require('http'),
+      fs = require('fs'),
+      url = require('url');
 
 //req will receive info about HTTP request. res will send back the desired response
 

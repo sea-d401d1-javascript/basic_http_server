@@ -4,9 +4,13 @@ var url = require('url');
 var start = exports.start = function(route, handle){
   function onRequest(request, response) {
     var pathname = url.parse(request.url).pathname;
+    var greetRegex = /\/greet/ ;
+    if(greetRegex.test(pathname)){
+      pathname = '/greet'
+    }
     console.log("Request for " + pathname + " received.");
 
-    var contentVar = route(handle, pathname);
+    var contentVar = route(handle, pathname, request, response);
 
     response.writeHead(200, {"Content-Type": "text/plain"});
     response.write(contentVar);

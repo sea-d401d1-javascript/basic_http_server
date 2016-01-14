@@ -7,6 +7,7 @@ handle['/'] = requestHandlers.start;
 handle['/index'] = requestHandlers.start;
 handle['/name'] = requestHandlers.name;
 handle['/time'] = requestHandlers.time;
+handle['/greet'] = requestHandlers.greet;
 
 var nowStart = exports.serverstart = function(){
   server.start(router.route, handle);

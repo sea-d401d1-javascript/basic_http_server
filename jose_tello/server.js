@@ -1,9 +1,11 @@
-const http = require('http');
+const http        = require('http');
 const querystring = require('querystring');
-const PORT = 3000;
-const request = require('superagent');
+const url         = require('url');
+const PORT        = 3000;
 
 var server = http.createServer(onRequest).listen(PORT);
+var time = new Date().toISOString();
+exports.time = time;
 
 function onRequest(req, res) {
   if (req.method === 'GET' && req.url === '/') {
@@ -12,32 +14,19 @@ function onRequest(req, res) {
   }
   if (req.method === 'GET' && req.url === '/time') {
     res.writeHead(200, {'Content-Type':'text/html'});
-    var time = new Date();
-    res.write('<h1 style="text-align: center">' + time.toISOString() + '</h1>');
-  }
-  if (req.method === 'GET' && req.url === '/greet/name' + req.url) {
-    res.writeHead(200, {'Content-Type':'text/html'})
-    res.write('<h1 style"text-align: center">Greetings ' + req.url);
+    res.write(JSON.stringify({ time: time }));
+    // trying to get input in url with substring
+    res.write(req.url.substring(1, 0));
+    res.end();
   }
   if (req.method === 'POST' && req.url === '/greet') {
     res.writeHead(200, {'Content-Type':'text/plain'});
     req.on('data', (data) => {
       console.log(data.toString());
       res.write(data.toString());
-      res.end()
+      res.end();
     });
   }
 }
-
-request
-  .post('/greet')
-  .set('Content-Type', 'application/json')
-  .send({ name: 'tj' })
-  .send({ pet: 'tobi' })
-  .end((err, res) => {
-    if (err || !res.ok) return 'Error.'
-    return JSON.stringify(res.body);
-  });
-
 
 console.log('Server is listening on port ' + PORT + '.');

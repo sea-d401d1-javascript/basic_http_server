@@ -15,8 +15,8 @@ var server = module.exports = http.createServer(function(req, res) {
   }
 
   if(req.method == 'POST' && (req.url == '/greet')) {
-    req.on('data', function(chunk) {
-      res.write(JSON.stringify({msg: chunk.toString()}));
+    req.on('data', function(data) {
+      res.write(JSON.stringify({msg: 'hello ' + data.toString()}));
     });
 
     req.on('end', function() {

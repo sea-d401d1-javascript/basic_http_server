@@ -35,7 +35,6 @@ describe('http server pointing at index', function(){
        done();
     });
   });
-
 });
 
 describe('time page route and behavior', function(){
@@ -50,22 +49,62 @@ describe('time page route and behavior', function(){
 
   it('should connect on the time route', (done) => {
     var app = 'http://localhost:3030';
-    chai.request(app)
-    .get('/time')
-    .end(function (err, res) {
-       expect(err).to.be.null;
-       expect(res).to.have.status(200);
-    });
+
     chai.request(app)
     .get('/time')
     .end(function (err, res) {
        expect(err).to.be.null;
        expect(res).to.be.text;
        expect(res).to.have.body;
-       for(ele in res){
-         console.log('res ele : ' + ele);
-       }
+       expect(res).to.have.status(200);
        done();
     });
   });
 });
+
+describe('greet page GET', function(){
+
+  before(function(){
+    index.serverstart();
+  });
+
+  after(function(){
+    index.serverstop();
+  });
+
+  it('should connect on the greet route', (done) => {
+    var app = 'http://localhost:3030';
+    chai.request(app)
+    .get('/greet/testname')
+    .end(function (err, res) {
+       expect(err).to.be.null;
+       expect(res).to.have.status(200);
+       expect(res.text).to.eql('Hello testname');
+       done();
+    });
+  });
+});
+
+describe('greet page POST', function(){
+
+  before(function(){
+    index.serverstart();
+  });
+
+  after(function(){
+    index.serverstop();
+  });
+
+  it('should handle the put and return name', (done) => {
+    var app = 'http://localhost:3030';
+    chai.request(app)
+    .post('/greet')
+    .send({"name": "SuperTest"})
+    .end(function (err, res) {
+       expect(err).to.be.null;
+       expect(res).to.be.text;
+       expect(res.text).to.eql('Hello SuperTest');
+       done();
+     });
+   });
+ });

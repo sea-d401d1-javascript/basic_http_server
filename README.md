@@ -1,11 +1,5 @@
 #Basic HTTP Server
-
-##To Submit this Assignment
-  * fork this repository
-  * write all of your code in a folder containing your name
-  * push to your repository
-  * submit a pull request to this repository
-  * submit a link to your PR in canvas
+Erika's basic HTTP server
 
 ##Description
 

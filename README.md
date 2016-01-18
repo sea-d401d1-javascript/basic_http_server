@@ -1,5 +1,4 @@
 #Basic HTTP Server
-Erika's basic HTTP server
 
 ##Description
 

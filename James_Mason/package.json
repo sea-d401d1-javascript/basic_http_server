@@ -1,0 +1,31 @@
+{
+  "name": "basic-http-server",
+  "version": "1.0.0",
+  "description": "A basic HTTP server with mocha/chai (+chai-http) testing.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JHM90/basic_http_server.git"
+  },
+  "author": "James Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JHM90/basic_http_server/issues"
+  },
+  "homepage": "https://github.com/JHM90/basic_http_server#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.3.4"
+  }
+}

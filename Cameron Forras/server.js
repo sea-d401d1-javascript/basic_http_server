@@ -10,7 +10,7 @@ var server = http.createServer(function(req, res) {
   if(req.url === '/' && req.method === 'GET') {
     resData.status = 200;
     resData.contentType = 'text/html';
-    resData.data = fs.readFileSync(__dirname + 'public/index.html').toString();
+    resData.data = fs.readFileSync(__dirname + '/public/index.html').toString();
   }
 
   if(req.url === '/time' && req.method === 'GET') {

@@ -1,0 +1,29 @@
+{
+  "name": "basic_http_server",
+  "version": "1.0.0",
+  "description": "A basic http server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugheskr/basic_http_server.git"
+  },
+  "author": "Kris Hughes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugheskr/basic_http_server/issues"
+  },
+  "homepage": "https://github.com/hugheskr/basic_http_server#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.4",
+    "superagent": "^1.6.1"
+  }
+}

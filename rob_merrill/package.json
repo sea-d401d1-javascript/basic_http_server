@@ -1,0 +1,29 @@
+{
+  "name": "rob_merrill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robgmerrill/basic_http_server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robgmerrill/basic_http_server/issues"
+  },
+  "homepage": "https://github.com/robgmerrill/basic_http_server#readme",
+  "description": "",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.3.4"
+  }
+}
